@@ -37,6 +37,9 @@ venv.bak/
 *.swp
 *.swo
 
+# Claude
+.claude/
+
 # MacOS
 .DS_Store
 
