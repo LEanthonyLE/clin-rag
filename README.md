@@ -4,11 +4,21 @@
 
 ## 目录结构
 
-- `api/`: API 接口定义
-- `orchestrator/`: 编排层，包含管道定义
-- `skills/`: 各种技能实现
-- `schemas/`: 数据模型定义
-- `utils/`: 工具函数
+```
+clin-rag-main/
+├── src/agentic_lightrag/       # 源码包
+│   ├── api/                    # FastAPI 接口 (main.py)
+│   ├── orchestrator/           # 流水线编排 (simple_pipeline.py)
+│   ├── skills/                 # 技能实现 (base / implementations / stubs)
+│   ├── schemas/                # Pydantic 数据模型 (common / contracts)
+│   ├── utils/                  # 外部客户端 (llm.py / lightrag_client.py)
+│   └── config.py               # 全局配置 (环境变量)
+├── pyproject.toml              # 项目元数据与依赖 (uv 管理)
+├── uv.lock                     # 依赖锁定文件
+├── main.py                     # 项目入口占位
+├── README.md
+└── .gitignore
+```
 
 ## 环境配置
 
@@ -38,9 +48,10 @@ WORKSPACE="default"
 
 ## 运行
 
-确保已安装必要的依赖项，然后运行：
-
 ```bash
-python -m api.main
+# 安装依赖 (自动创建 .venv 并安装项目)
+uv sync
+
+# 启动服务
+uv run python -m agentic_lightrag.api.main
 ```
-(根据实际入口文件调整)
